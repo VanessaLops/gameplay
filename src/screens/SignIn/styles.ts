@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: theme.colors.background,
+    // backgroundColor: theme.colors.secondary100,
   },
   input: {
     height: RFValue(50),
@@ -24,6 +24,8 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: RFValue(40),
     marginBottom: RFValue(16),
+    fontFamily: theme.fonts.title700,
+    lineHeight: RFValue(40)
   },
   content: {
     marginTop: RFValue(-40),
@@ -34,5 +36,7 @@ export const styles = StyleSheet.create({
     fontSize: RFValue(15),
     textAlign: "center",
     marginBottom: RFValue(64),
+    fontFamily: theme.fonts.title500,
+    lineHeight: RFValue(25)
   },
 });
