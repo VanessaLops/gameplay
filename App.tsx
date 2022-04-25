@@ -10,8 +10,10 @@ import { SignIn } from "./src/screens/SignIn";
 import { Background } from "./src/components/Background";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "react-native";
-
+import { Home } from "./src/screens/Home";
+import Routes from "./src/routes";
 export default function App() {
+  
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -31,7 +33,7 @@ export default function App() {
         //Faz o conteudo abaixo do status bar colar com a parte de cima.
         translucent
       />
-      <SignIn />
+      <Routes />
     </Background>
   );
 }
