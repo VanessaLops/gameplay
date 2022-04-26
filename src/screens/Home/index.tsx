@@ -15,6 +15,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackParamList = {
   AppointmentDetails: undefined;
+  AppointmentCreate: undefined;
 };
 
 export function Home() {
@@ -61,11 +62,15 @@ export function Home() {
   function handleAppointmentDetails() {
     return navigation.navigate("AppointmentDetails");
   }
+  function handleAppointmentCreate() {
+    return navigation.navigate("AppointmentCreate");
+  }
+
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
       <CategorySelect
         categorySelected={category}
