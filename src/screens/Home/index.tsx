@@ -1,18 +1,27 @@
 import React, { useState } from "react";
-
+import { useNavigation } from "@react-navigation/native";
 import { View, FlatList, Text } from "react-native";
+
 import { Appointment } from "../../components/Appointment";
+import { Background } from "../../components/Background";
 import { ButtonAdd } from "../../components/ButtonAdd";
 import { CategorySelect } from "../../components/CategorySelect";
 import { ListDivider } from "../../components/ListDivider";
 import { ListHeader } from "../../components/ListHeader";
-
 import { Profile } from "../../components/Profile";
 
 import { styles } from "./styles";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+export type RootStackParamList = {
+  AppointmentDetails: undefined;
+};
 
 export function Home() {
   const [category, setCategory] = useState("");
+
+  type appointmentDetails = StackNavigationProp<RootStackParamList>;
+  const navigation = useNavigation<appointmentDetails>();
 
   const appointments = [
     {
@@ -32,7 +41,7 @@ export function Home() {
       id: "2",
       guild: {
         id: "1",
-        name: "Lendários",
+        name: "Mecenários",
         icon: null,
         owner: true,
       },
@@ -48,8 +57,12 @@ export function Home() {
     return categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
+  //Navegação até os detalhes do item lista.
+  function handleAppointmentDetails() {
+    return navigation.navigate("AppointmentDetails");
+  }
   return (
-    <View>
+    <Background>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd />
@@ -66,9 +79,11 @@ export function Home() {
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
           showsVerticalScrollIndicator={false}
-          renderItem={({ item }) => <Appointment date={item} />}
+          renderItem={({ item }) => (
+            <Appointment date={item} onPress={handleAppointmentDetails} />
+          )}
         />
       </View>
-    </View>
+    </Background>
   );
 }

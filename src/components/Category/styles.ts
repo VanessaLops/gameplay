@@ -15,29 +15,27 @@ export const styles = StyleSheet.create({
   content: {
     width: 100,
     height: RFValue(116),
-    backgroundColor: theme.colors.secondary40,
     borderRadius: RFValue(8),
     alignItems: "center",
     justifyContent: "space-between",
-    paddingVertical: RFValue(19),
+    paddingVertical: RFValue(20),
   },
 
   checked: {
-    //position: "absolute",
-    top: RFValue(5),
-    right: RFValue(60),
+    position: "absolute",
+    top: 7,
+    right: 7,
     width: RFValue(10),
     height: RFValue(10),
     backgroundColor: theme.colors.primary,
-    alignSelf: 'flex-end',
     borderRadius: RFValue(10),
     padding: 5
   },
 
   check: {
-    // position: "absolute",
-    top: RFValue(0),
-    right: RFValue(20),
+    position: "absolute",
+    top: 7,
+    right: 7,
     width: RFValue(12),
     height: RFValue(12),
     backgroundColor: theme.colors.secondary100,

@@ -10,6 +10,7 @@ import { Category } from "../Category";
 
 type CategoryProps = {
   categorySelected: string;
+  hasCheckBox?: boolean;
   //Props categoryId é o mesmo que const [categoryId,setCaregoryId] do useState == > aqui estou tipando ele
   setCategoryId: (categoryId: string) => void;
 };
@@ -17,6 +18,7 @@ type CategoryProps = {
 export function CategorySelect({
   categorySelected,
   setCategoryId,
+  hasCheckBox = false,
 }: CategoryProps) {
   return (
     <ScrollView
@@ -32,6 +34,7 @@ export function CategorySelect({
           icon={category.icon}
           checked={category.id === categorySelected}
           onPress={() => setCategoryId(category.id)}
+          hasCheckBox={hasCheckBox}
         />
       ))}
     </ScrollView>

@@ -3,19 +3,30 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "../screens/Home";
 
-const { Navigator, Screen } = createStackNavigator();
+import { theme } from "../global/styles/theme";
+import { AppointmentDetails } from "../screens/AppointmentDetails";
+import { SignIn } from "../screens/SignIn";
 
-const AppRoutes = () => {
+
+const Stack = createStackNavigator();
+
+export function AppRoutes() {
   return (
-    <Navigator
-      headerMode="none"
-      screenOptions={{
-        cardStyle: { backgroundColor: "transparent" },
-      }}
-    >
-      <Screen name="Home" component={Home} />
-    </Navigator>
+    <>
+      <Stack.Navigator
+        // headerMode="none"
+        screenOptions={{
+          cardStyle: { backgroundColor: theme.colors.secondary100 },
+          headerShown: false,
+          headerMode: "float"
+        }}
+      >
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="AppointmentDetails" component={AppointmentDetails} />
+      </Stack.Navigator>
+    </>
   );
-};
+}
 
 export default AppRoutes;
